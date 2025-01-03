@@ -1,6 +1,9 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+
+//We are using Leaflet. This is a npm package to show data on a map. using Leaflet's documentation, I used an example code listed on there and adjusted it to display our data.
+//The marker icon inside the mapbox was showing a broken image. Needed to fix it, and used this code from this link to have the marker icon appear: https://github.com/PaulLeCam/react-leaflet/issues/453
 import L from 'leaflet';
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -9,8 +12,6 @@ L.Icon.Default.mergeOptions({
     iconUrl: require('leaflet/dist/images/marker-icon.png'),
     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
-
-//We are using Leaflet. This is a npm package to show data on a map. using Leaflet's documentation, I used an example code listed on there and adjusted it to display our data.
 
 const MapComponent = ({ latitude, longitude, incidentData }) => {
   const position = [latitude, longitude]; //getting this from incident details

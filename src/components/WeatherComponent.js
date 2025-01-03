@@ -7,7 +7,7 @@ const WeatherComponent = ({latitude, longitude, timestamp}) => {
     useEffect(() => {
         const fetchWeather = async() => {
             const date = new Date(timestamp).toISOString().split("T")[0] // getting this date from the timestamp, and just splitting it to get the data
-            //using Axios, we are taking this get request straight from RapidAPI to get the data that we need. This is juts given to us in the documentation
+            //using Axios, we are taking this get request straight from RapidAPI to get the data that we need. This is just given to us in the documentation
             const options = {
                 method: 'GET',
                 url: 'https://meteostat.p.rapidapi.com/point/monthly',
@@ -18,7 +18,7 @@ const WeatherComponent = ({latitude, longitude, timestamp}) => {
                   end: date
                 },
                 headers: {
-                  'x-rapidapi-key': 'b50104f8cbmsh519fe4bb61f3219p168e26jsn28091c9c5203', //given to us by Rapid API
+                  'x-rapidapi-key': 'b50104f8cbmsh519fe4bb61f3219p168e26jsn28091c9c5203', //in production we would use process.env.REACT_METEOSTAT_API_KEY 
                   'x-rapidapi-host': 'meteostat.p.rapidapi.com'
                 }
               };
