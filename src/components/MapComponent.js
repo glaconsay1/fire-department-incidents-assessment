@@ -1,9 +1,21 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+});
+
+//We are using Leaflet. This is a npm package to show data on a map. using Leaflet's documentation, I used an example code listed on there and adjusted it to display our data.
 
 const MapComponent = ({ latitude, longitude, incidentData }) => {
-  const position = [latitude, longitude];
+  const position = [latitude, longitude]; //getting this from incident details
+
+  //The Popup inside the marker component shows some data about the incident. This can be adjust to have more or less data. Just showing the type and the comments.
 
   return (
     <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
@@ -14,7 +26,7 @@ const MapComponent = ({ latitude, longitude, incidentData }) => {
       <Marker position={position}>
         <Popup>
           <div>
-            <h3>{incidentData.description.type}</h3>
+            <h3>{incidentData.description.type}</h3> 
             <p>{incidentData.description.comments}</p>
           </div>
         </Popup>
