@@ -14,6 +14,7 @@ This project enriches 911 emergency incident data with weather information using
 
 ## Prerequisites
 
+- I do not have access to an OSX machine. The steps provided will be for a Windows machine, and how to install and run the code.
 Before running the project, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (v16 or higher)
@@ -57,3 +58,17 @@ Displays temperature, precipitation, and wind speed.
 
 3. IncidentDetail.js
 Combines the MapComponent and WeatherComponent to display all incident details.
+
+## Screendshots
+Here are the screenshots.
+![alt text](image.png)
+![alt text](image-1.png)
+
+
+## How much time did you spend on the project?
+About 2.5 hours, including some research and implementation.
+
+
+## What improvements would you make or best practices would you utilize if you had double the time?
+I would definitely improve the UI. This is a basic implementation, and we are just displaying the data on the screen.
+I would also try and implement this in TypeScript. Although I do not have much experience with it, I would try and improve the code with TypeScript. 
