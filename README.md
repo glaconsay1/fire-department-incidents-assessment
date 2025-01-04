@@ -86,7 +86,7 @@ Combines the MapComponent and WeatherComponent to display all incident details.
 
 ## Screenshots
 
-Here are some the screenshots.
+Here are some of the screenshots.
 ![alt text](image.png)
 ![alt text](image-1.png)
 
