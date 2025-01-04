@@ -71,15 +71,15 @@ fire-department-incidents-assessment/
 
 ## Components 
 
-1. MapComponent.js
+1. **MapComponent.js**:
 Displays the incident location on an interactive map using Leaflet.
 Includes a marker with a popup showing incident details.
 
-2. WeatherComponent.js
+2. **WeatherComponent.js**:
 Fetches weather data for the incident location and date using the Meteostat API.
 Displays temperature(max, min, & average), precipitation, and wind speed on that date and location.
 
-3. IncidentDetail.js
+3. **IncidentDetail.js**:
 Combines the MapComponent and WeatherComponent to display all incident details.
 
 ---
