@@ -15,7 +15,7 @@ This project enriches 911 emergency incident data with weather information using
 ## Prerequisites
 
 I do not have access to an OSX machine. 
-The steps provided will be for a Windows machine, and how to install and run the project on a window machine.
+The steps provided will be for a Windows machine, and how to install and run the project on a Windows machine.
 Before running the project, ensure you have the following installed and configured if necessary:
 
 - Visual Studio Code or any other IDE you prefer. For this project and my recommendation, I used Visual Studio (VS) Code. For the rest of the instructions, I will assume you are using VS Code.
@@ -101,7 +101,7 @@ About 2.5-3 hours. This includes implementation, some research, creating the REA
 ## What improvements would you make or best practices would you utilize if you had double the time?
 
 - Improve the UI. This is a basic implementation, and we are just displaying the data on the screen. I would try to make it more appealing and easy to read
-- Try and implement this in TypeScript. Although I do not have much experience with it, I would try and improve the code with TypeScript. 
+- Try and implement this in TypeScript. In my limited experience with TypeScript, implementing this offers benefits such as type safety, scalability, and improved tooling.
 - Possibly implement some more test cases. Given there are two test files, that should suffice to see if the project is working for now.
 - Implement Lazy or suspense. In production, I would assume we are pulling much more data in, which would cause some perfomrance issues. Lazy or suspense could fix some of that.
 - Given more time and if more features are going to be built, it most likely will need better state management, like Redux.
