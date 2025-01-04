@@ -111,4 +111,4 @@ About 2.5-3 hours. This includes implementation, some research, creating the REA
 
 ## Conclusion
 
-This project demonstrates how to leverage React, Axios, and Leaflet to build web application that enriches data given from a file, and visualizes data fetched from an external API like Meteostat. By utilizing React’s component-based architecture, Axios for seamless API calls, and Leaflet to display dynamic maps, we have created the beginnings of a rich and engaging user experience with this application. Overall, a solid project that could be built out with many more features and could potentially be used in the real world.
+This project demonstrates how to leverage React, Axios, and Leaflet to a build web application that enriches data given from a file, and visualizes data fetched from an external API like Meteostat. By utilizing React’s component-based architecture, Axios for seamless API calls, and Leaflet to display dynamic maps, we have created the beginnings of a rich and engaging user experience with this application. Overall, a solid project that could be built out with many more features and could potentially be used in the real world.
