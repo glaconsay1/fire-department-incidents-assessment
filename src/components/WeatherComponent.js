@@ -6,15 +6,17 @@ const WeatherComponent = ({latitude, longitude, timestamp}) => {
 
     useEffect(() => {
         const fetchWeather = async() => {
-            const date = new Date(timestamp).toISOString().split("T")[0] // getting this date from the timestamp, and just splitting it to get the data
+            //Timestamp data from IncidentDetails component. Converting to an ISOstring format (if not already in that format) then extracting the Date part from the ISO String
+            const date = new Date(timestamp).toISOString().split("T")[0] 
+
             //using Axios, we are taking this get request straight from RapidAPI to get the data that we need. This is just given to us in the documentation
             const options = {
                 method: 'GET',
                 url: 'https://meteostat.p.rapidapi.com/point/monthly',
-                params: { //this is the data inside the json files given, and we assign them to the params needed by the endpoint
+                params: { //props passed from IncidentDetails Component, and we assign them to the params needed by the endpoint
                   lat: latitude, 
                   lon: longitude,
-                  start: date,
+                  start: date, //This is the date we got from the time stamp
                   end: date
                 },
                 headers: {
@@ -23,9 +25,9 @@ const WeatherComponent = ({latitude, longitude, timestamp}) => {
                 }
               };
 
-              try { //Once we build out the data, use axious to make a get request and then set the response data for weather in the useState
+              try { //Once we build out the data, use axios to make a get request and then set the response data for weather in the useState
                   const response = await axios.request(options);
-                  console.log(response.data);
+                  console.log(response.data); //need to see what the data is that is being returned in the console
                   setWeather(response.data.data[0]);
               } catch (error) {
                   console.error(error);
@@ -34,11 +36,15 @@ const WeatherComponent = ({latitude, longitude, timestamp}) => {
         fetchWeather() 
     }, [latitude, longitude, timestamp]) //any time any of these dependencies change, rerun useEffect to grab the most recent data needed
 
-    if (!weather) return <div>Loading weather data...</div>;
+    if (!weather) return <div>Loading weather data...</div>; //Could use Lazy or suspense
+
   return (
+    //Shows information of the weather during the date of the incident at the given location. Units of measurement used are assumptions.
     <div> 
-      <h3>Weather at the time of the incident:</h3>
-      <p>Temperature: {weather.tavg}°C</p>
+      <h2>Weather at the time of the incident:</h2>
+      <p>Max Temperature: {weather.tmax}°C</p>
+      <p>Min Temperature: {weather.tmin}°C</p>
+      <p>Average Temperature: {weather.tavg}°C</p>
       <p>Precipitation: {weather.prcp}mm</p>
       <p>Wind Speed: {weather.wspd}km/h</p>
     </div>

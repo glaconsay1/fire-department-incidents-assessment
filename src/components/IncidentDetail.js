@@ -3,10 +3,13 @@ import MapComponent from "./MapComponent"
 import WeatherComponent from "./WeatherComponent";
 
 const IncidentDetail = ({incidentData}) => {
-    const {latitude, longitude} = incidentData.address //destructuring lat and longitude from the incidenData.address
-    const {event_opened} = incidentData.description //getting the event description
+    const {latitude, longitude} = incidentData.address //destructuring latitude and longitude from the incidenData.address and will be passed into MapComponent and WeatherComponent
+    const {event_opened} = incidentData.description //getting this from event description, which is actually a timestamp. This will be passed into the WeatherComponent.
 
     return (
+        //shows the details of the incident. Can be adjusted to show more info if needed.
+        //MapComponent shows the incident on the map
+        //WeatherComponent shows the weather at the time of the incident
         <div>
           <h2>Incident Details</h2>
           <p>
@@ -18,12 +21,12 @@ const IncidentDetail = ({incidentData}) => {
           <p>
             <strong>Comments:</strong> {incidentData.description.comments}
           </p>
-          <MapComponent //These are the props we need to pass to the map component
+          <MapComponent //props passed in from destructuring above
             latitude={latitude}
             longitude={longitude}
             incidentData={incidentData}
           />
-          <WeatherComponent //props needed to pass in the weather component
+          <WeatherComponent //props passed in from destructuring above
             latitude={latitude}
             longitude={longitude}
             timestamp={event_opened}

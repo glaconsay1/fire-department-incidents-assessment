@@ -14,11 +14,13 @@ L.Icon.Default.mergeOptions({
 });
 
 const MapComponent = ({ latitude, longitude, incidentData }) => {
-  const position = [latitude, longitude]; //getting this from incident details
+  const position = [latitude, longitude]; //getting this from incident details. Both were props passed into this component from incident details
 
-  //The Popup inside the marker component shows some data about the incident. This can be adjust to have more or less data. Just showing the type and the comments.
-
-  return (
+  //The Popup inside the marker component shows some data about the incident. 
+  //The data displayed inside the popup is dependent on the incidentData (specifically incidentData.description and incidentData.description), and any of the following attributes inside them.
+  //This can be adjusted to have more or less data. Showing some basic relevant data rght now.
+  
+  return ( //height can be adjusted to display more data. Kept it at default size for now.
     <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -27,8 +29,12 @@ const MapComponent = ({ latitude, longitude, incidentData }) => {
       <Marker position={position}>
         <Popup>
           <div>
-            <h3>{incidentData.description.type}</h3> 
-            <p>{incidentData.description.comments}</p>
+            <h2>Incident Type: {incidentData.description.type}</h2> 
+            <h3>Address of Incident: {incidentData.address.address_line1}, {incidentData.address.city}, {incidentData.address.state} </h3>
+            <h3>Coordinates: Latitude {incidentData.address.latitude}, Longitude {incidentData.address.longitude} </h3>
+            <h3>Day of the Week Incident Occured: {incidentData.description.day_of_week}</h3>
+            <h3>Hour of the Day: {incidentData.description.hour_of_day}</h3>
+            <h3>Incident Number: {incidentData.description.incident_number}</h3>
           </div>
         </Popup>
       </Marker>
